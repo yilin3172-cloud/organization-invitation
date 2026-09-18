@@ -5,7 +5,7 @@ window.INVITATION_CONFIG = {
   letterDate: "2026年9月",
   qrImage: "",
   members: [
-    { name: "罗子威学长", role: "行知书院团副", intro: "是从组织部一路成长上来的罗子威，期待大家在新的校园中担当新的青春责任，祝前途光明！学业顺利！组织部欢迎你", avatar: "assets/luo-ziwei.jpg" },
+    { name: "罗子威学长", role: "行知书院团副", intro: "我是从组织部一路成长上来的罗子威，期待大家在新的校园中担当新的青春责任，祝前途光明！学业顺利！组织部欢迎你", avatar: "assets/luo-ziwei.jpg" },
     { name: "洪孜熙学姐", role: "兼职团干", intro: "我是行知书院团委的洪孜熙，愿与各位在团务实践中淬炼青春、收获成长，祝大家步履生辉，学业有成！团委组织部欢迎你的到来。", avatar: "assets/hong-zixi.jpg" },
     { name: "李巧玲学姐", role: "组织部执行部长", intro: "", avatar: "assets/li-qiaoling.jpg" },
     { name: "肖乐学姐", role: "组织部执行副部长", intro: "", avatar: "assets/xiao-le.jpg" },

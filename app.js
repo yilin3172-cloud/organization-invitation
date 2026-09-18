@@ -174,7 +174,7 @@
     const width = runCanvas.width;
     const height = runCanvas.height;
     const sky = context.createLinearGradient(0, 0, 0, height);
-    sky.addColorStop(0, "#f8e3ea"); sky.addColorStop(.69, "#fffdf9"); sky.addColorStop(1, "#f9f7ea");
+    sky.addColorStop(0, "#def0f9"); sky.addColorStop(.69, "#ffffff"); sky.addColorStop(1, "#f7fbfe");
     context.fillStyle = sky; context.fillRect(0, 0, width, height);
     const cloudOffset = -(runWorld * .15) % 310;
     context.fillStyle = "rgba(255,255,255,.88)";
@@ -186,14 +186,14 @@
     const buildingOffset = -(runWorld * .32) % 510;
     for (let i = -1; i < 3; i += 1) {
       const x = buildingOffset + i * 510;
-      context.fillStyle = "#dfc5d1"; context.fillRect(x + 55, 160, 172, 72);
-      context.fillStyle = "#c689aa"; context.fillRect(x + 255, 140, 132, 92);
-      context.fillStyle = "#fff8f9";
+      context.fillStyle = "#c6dce9"; context.fillRect(x + 55, 160, 172, 72);
+      context.fillStyle = "#4167b1"; context.fillRect(x + 255, 140, 132, 92);
+      context.fillStyle = "#ffffff";
       for (let col = 0; col < 4; col += 1) for (let row = 0; row < 2; row += 1) context.fillRect(x + 76 + col * 34, 178 + row * 25, 19, 13);
     }
-    context.fillStyle = "#f3d6bd"; context.fillRect(0, 232, width, 34);
-    context.fillStyle = "#c689aa"; context.fillRect(0, 266, width, height - 266);
-    context.fillStyle = "#fff1f4";
+    context.fillStyle = "#c7e7f6"; context.fillRect(0, 232, width, 34);
+    context.fillStyle = "#4167b1"; context.fillRect(0, 266, width, height - 266);
+    context.fillStyle = "#f7fbfe";
     for (let x = -(runWorld % 90); x < width; x += 90) context.fillRect(x, 293, 44, 5);
   }
 
@@ -203,22 +203,22 @@
     context.fillStyle = "rgba(38,56,72,.15)";
     context.beginPath(); context.ellipse(player.x + player.w / 2, runGroundY + 3, 25, 6, 0, 0, Math.PI * 2); context.fill();
     const leg = Math.sin(performance.now() / 80) * 7;
-    context.strokeStyle = "#76566a"; context.lineWidth = 6; context.lineCap = "round";
+    context.strokeStyle = "#1b1f23"; context.lineWidth = 6; context.lineCap = "round";
     context.beginPath(); context.moveTo(player.x + 15, player.y + 42); context.lineTo(player.x + 11 + leg, player.y + 55); context.moveTo(player.x + 23, player.y + 42); context.lineTo(player.x + 27 - leg, player.y + 55); context.stroke();
-    context.fillStyle = "#ef6078"; roundedRect(context, player.x + 7, player.y + 20, 25, 28, 7); context.fill();
-    context.fillStyle = "#c689aa"; roundedRect(context, player.x + 2, player.y + 24, 10, 21, 4); context.fill();
+    context.fillStyle = "#4167b1"; roundedRect(context, player.x + 7, player.y + 20, 25, 28, 7); context.fill();
+    context.fillStyle = "#c7e7f6"; roundedRect(context, player.x + 2, player.y + 24, 10, 21, 4); context.fill();
     context.fillStyle = "#ffd5b5"; context.beginPath(); context.arc(player.x + 20, player.y + 12, 12, 0, Math.PI * 2); context.fill();
-    context.fillStyle = "#51414b"; context.beginPath(); context.arc(player.x + 20, player.y + 7, 12, Math.PI, Math.PI * 2); context.fill();
+    context.fillStyle = "#1b1f23"; context.beginPath(); context.arc(player.x + 20, player.y + 7, 12, Math.PI, Math.PI * 2); context.fill();
   }
 
   function drawRunObstacle(obstacle) {
     const context = runContext;
     const x = obstacle.worldX - runWorld;
     if (x < -55 || x > 955) return;
-    context.fillStyle = obstacle.hit ? "#d8d1d3" : "#b6758f";
+    context.fillStyle = obstacle.hit ? "#d7e4eb" : "#5878b9";
     roundedRect(context, x, obstacle.y, obstacle.w, obstacle.h, 4); context.fill();
-    context.strokeStyle = "#824f64"; context.lineWidth = 3; context.stroke();
-    context.fillStyle = "#fff6f8"; context.font = "bold 11px sans-serif"; context.textAlign = "center"; context.fillText("材料", x + obstacle.w / 2, obstacle.y + 21);
+    context.strokeStyle = "#2d4f91"; context.lineWidth = 3; context.stroke();
+    context.fillStyle = "#ffffff"; context.font = "bold 11px sans-serif"; context.textAlign = "center"; context.fillText("材料", x + obstacle.w / 2, obstacle.y + 21);
   }
 
   function drawRunItem(item) {
@@ -229,11 +229,11 @@
     context.save();
     context.shadowColor = "rgba(35,80,94,.18)"; context.shadowBlur = 8; context.shadowOffsetY = 4;
     context.fillStyle = "#fff"; roundedRect(context, x - 7, item.y - 7, 70, 80, 8); context.fill();
-    context.shadowColor = "transparent"; context.strokeStyle = item.data.kind === "person" ? "#c689aa" : "#ef6078"; context.lineWidth = 3; context.stroke();
-    context.fillStyle = item.data.kind === "person" ? "#c689aa" : "#ef6078";
+    context.shadowColor = "transparent"; context.strokeStyle = item.data.kind === "person" ? "#4167b1" : "#2d4f91"; context.lineWidth = 3; context.stroke();
+    context.fillStyle = item.data.kind === "person" ? "#4167b1" : "#2d4f91";
     context.beginPath(); context.arc(x + 28, item.y + 25, 20, 0, Math.PI * 2); context.fill();
     context.fillStyle = "#fff"; context.font = "bold 23px sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"; context.fillText(item.data.icon, x + 28, item.y + 26);
-    context.fillStyle = "#754e60"; context.font = "bold 11px sans-serif"; context.textBaseline = "alphabetic";
+    context.fillStyle = "#1b1f23"; context.font = "bold 11px sans-serif"; context.textBaseline = "alphabetic";
     const label = item.data.label.length > 7 ? `${item.data.label.slice(0, 7)}…` : item.data.label;
     context.fillText(label, x + 28, item.y + 63); context.restore();
   }
@@ -242,11 +242,11 @@
     const context = runContext;
     const x = runFinishX - runWorld;
     if (x < -130 || x > 1000) return;
-    context.fillStyle = "#a75d76"; context.fillRect(x, 90, 7, 176);
-    context.fillStyle = "#fffdf9"; context.fillRect(x + 7, 104, 130, 66);
-    context.strokeStyle = "#a75d76"; context.lineWidth = 4; context.strokeRect(x + 7, 104, 130, 66);
-    context.fillStyle = "#b64c65"; context.textAlign = "center"; context.font = "bold 16px sans-serif"; context.fillText("行知书院团委", x + 72, 130);
-    context.fillStyle = "#a75d76"; context.font = "bold 14px sans-serif"; context.fillText("组织部 ✦", x + 72, 153);
+    context.fillStyle = "#4167b1"; context.fillRect(x, 90, 7, 176);
+    context.fillStyle = "#ffffff"; context.fillRect(x + 7, 104, 130, 66);
+    context.strokeStyle = "#4167b1"; context.lineWidth = 4; context.strokeRect(x + 7, 104, 130, 66);
+    context.fillStyle = "#2d4f91"; context.textAlign = "center"; context.font = "bold 16px sans-serif"; context.fillText("行知书院团委", x + 72, 130);
+    context.fillStyle = "#4167b1"; context.font = "bold 14px sans-serif"; context.fillText("组织部 ✦", x + 72, 153);
   }
 
   function drawRun() {
@@ -342,8 +342,8 @@
     window.clearTimeout(hookToastTimer);
     const toast = $("hookToast");
     toast.textContent = message;
-    toast.style.borderColor = isRisk ? "#c05c70" : "#c689aa";
-    toast.style.color = isRisk ? "#8d4054" : "#85576c";
+    toast.style.borderColor = isRisk ? "#1b1f23" : "#4167b1";
+    toast.style.color = isRisk ? "#1b1f23" : "#2d4f91";
     toast.classList.add("show");
     hookToastTimer = window.setTimeout(() => toast.classList.remove("show"), 1200);
   }
@@ -371,12 +371,12 @@
 
   function drawHookBackground() {
     const context = hookContext; const width = hookCanvas.width; const height = hookCanvas.height;
-    const sky = context.createLinearGradient(0, 0, 0, height); sky.addColorStop(0, "#f8e3ea"); sky.addColorStop(.34, "#fffdf9"); sky.addColorStop(.35, "#f5dfcf"); sky.addColorStop(1, "#a9788b");
+    const sky = context.createLinearGradient(0, 0, 0, height); sky.addColorStop(0, "#def0f9"); sky.addColorStop(.34, "#ffffff"); sky.addColorStop(.35, "#c7e7f6"); sky.addColorStop(1, "#4167b1");
     context.fillStyle = sky; context.fillRect(0, 0, width, height);
-    context.fillStyle = "#ddafbd"; context.fillRect(0, 168, width, height - 168); context.fillStyle = "#b77a91"; context.fillRect(0, 305, width, height - 305);
+    context.fillStyle = "#b8dced"; context.fillRect(0, 168, width, height - 168); context.fillStyle = "#4167b1"; context.fillRect(0, 305, width, height - 305);
     context.fillStyle = "rgba(255,255,255,.2)"; for (let x = 20; x < width; x += 95) for (let y = 185; y < height; y += 82) { context.beginPath(); context.arc(x + (y % 3) * 8, y, 3, 0, Math.PI * 2); context.fill(); }
-    context.fillStyle = "#fff8f3"; roundedRect(context, 307, 22, 286, 65, 8); context.fill(); context.strokeStyle = "#a56a80"; context.lineWidth = 4; context.stroke();
-    context.fillStyle = "#a54962"; context.font = "bold 20px sans-serif"; context.textAlign = "center"; context.fillText("组织部收获站", 450, 49); context.font = "14px sans-serif"; context.fillStyle = "#886171"; context.fillText("找准时机，带走真正的收获", 450, 72);
+    context.fillStyle = "#ffffff"; roundedRect(context, 307, 22, 286, 65, 8); context.fill(); context.strokeStyle = "#4167b1"; context.lineWidth = 4; context.stroke();
+    context.fillStyle = "#2d4f91"; context.font = "bold 20px sans-serif"; context.textAlign = "center"; context.fillText("组织部收获站", 450, 49); context.font = "14px sans-serif"; context.fillStyle = "#5f6d7b"; context.fillText("找准时机，带走真正的收获", 450, 72);
   }
 
   function drawHookObject(item) {
@@ -385,26 +385,26 @@
     if (hook.target === item) { const end = hookEnd(); x = end.x; y = end.y + item.r * .35; }
     context.save();
     if (item.type === "gain") {
-      context.shadowColor = "rgba(182,76,101,.22)"; context.shadowBlur = 8; context.fillStyle = "#ef6078";
+      context.shadowColor = "rgba(65,103,177,.22)"; context.shadowBlur = 8; context.fillStyle = "#4167b1";
       context.beginPath();
       for (let point = 0; point < 7; point += 1) { const angle = Math.PI * 2 * point / 7 - .4; const radius = item.r * (.82 + .16 * Math.sin(point * 2.1)); const px = x + Math.cos(angle) * radius; const py = y + Math.sin(angle) * radius; if (point === 0) context.moveTo(px, py); else context.lineTo(px, py); }
-      context.closePath(); context.fill(); context.shadowColor = "transparent"; context.strokeStyle = "#bd4f6a"; context.lineWidth = 3; context.stroke();
-      context.fillStyle = "#ffeef2"; context.beginPath(); context.ellipse(x - item.r * .24, y - item.r * .22, item.r * .24, item.r * .12, -.5, 0, Math.PI * 2); context.fill();
-      context.fillStyle = "#834456"; context.font = "bold 24px sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"; context.fillText(item.icon, x, y + 1);
+      context.closePath(); context.fill(); context.shadowColor = "transparent"; context.strokeStyle = "#2d4f91"; context.lineWidth = 3; context.stroke();
+      context.fillStyle = "#def0f9"; context.beginPath(); context.ellipse(x - item.r * .24, y - item.r * .22, item.r * .24, item.r * .12, -.5, 0, Math.PI * 2); context.fill();
+      context.fillStyle = "#1b1f23"; context.font = "bold 24px sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"; context.fillText(item.icon, x, y + 1);
     } else {
-      context.fillStyle = "#51434a"; context.beginPath(); context.arc(x, y, item.r, 0, Math.PI * 2); context.fill(); context.strokeStyle = "#2f2930"; context.lineWidth = 3; context.stroke();
-      context.strokeStyle = "#ef6078"; context.lineWidth = 5; context.beginPath(); context.moveTo(x + item.r * .45, y - item.r * .72); context.quadraticCurveTo(x + item.r * .78, y - item.r * 1.18, x + item.r * .92, y - item.r * 1.35); context.stroke();
+      context.fillStyle = "#1b1f23"; context.beginPath(); context.arc(x, y, item.r, 0, Math.PI * 2); context.fill(); context.strokeStyle = "#101315"; context.lineWidth = 3; context.stroke();
+      context.strokeStyle = "#4167b1"; context.lineWidth = 5; context.beginPath(); context.moveTo(x + item.r * .45, y - item.r * .72); context.quadraticCurveTo(x + item.r * .78, y - item.r * 1.18, x + item.r * .92, y - item.r * 1.35); context.stroke();
       context.fillStyle = "#fff"; context.font = "bold 23px sans-serif"; context.textAlign = "center"; context.textBaseline = "middle"; context.fillText("×", x, y + 1);
     }
-    context.fillStyle = item.type === "gain" ? "#754c5c" : "#563a49"; context.font = "bold 11px sans-serif"; context.textBaseline = "alphabetic";
+    context.fillStyle = item.type === "gain" ? "#1b1f23" : "#1b1f23"; context.font = "bold 11px sans-serif"; context.textBaseline = "alphabetic";
     context.fillText(item.label.length > 8 ? `${item.label.slice(0, 8)}…` : item.label, x, y + item.r + 16); context.restore();
   }
 
   function drawHookLine() {
     const context = hookContext; const end = hookEnd();
-    context.strokeStyle = "#674e5a"; context.lineWidth = 4; context.beginPath(); context.moveTo(hook.x, hook.y); context.lineTo(end.x, end.y); context.stroke();
-    context.save(); context.translate(end.x, end.y); context.rotate(-hook.angle); context.strokeStyle = "#846878"; context.lineWidth = 5; context.beginPath(); context.arc(0, 8, 12, .1, Math.PI * 1.25); context.stroke(); context.restore();
-    context.fillStyle = "#c689aa"; context.beginPath(); context.arc(hook.x, hook.y, 18, 0, Math.PI * 2); context.fill(); context.strokeStyle = "#8f5b71"; context.lineWidth = 4; context.stroke(); context.fillStyle = "#ef6078"; context.beginPath(); context.arc(hook.x, hook.y, 7, 0, Math.PI * 2); context.fill();
+    context.strokeStyle = "#1b1f23"; context.lineWidth = 4; context.beginPath(); context.moveTo(hook.x, hook.y); context.lineTo(end.x, end.y); context.stroke();
+    context.save(); context.translate(end.x, end.y); context.rotate(-hook.angle); context.strokeStyle = "#5f6d7b"; context.lineWidth = 5; context.beginPath(); context.arc(0, 8, 12, .1, Math.PI * 1.25); context.stroke(); context.restore();
+    context.fillStyle = "#4167b1"; context.beginPath(); context.arc(hook.x, hook.y, 18, 0, Math.PI * 2); context.fill(); context.strokeStyle = "#2d4f91"; context.lineWidth = 4; context.stroke(); context.fillStyle = "#def0f9"; context.beginPath(); context.arc(hook.x, hook.y, 7, 0, Math.PI * 2); context.fill();
   }
 
   function drawHook() { hookContext.clearRect(0, 0, hookCanvas.width, hookCanvas.height); drawHookBackground(); hookObjects.forEach(drawHookObject); drawHookLine(); }

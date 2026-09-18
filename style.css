@@ -153,16 +153,3 @@ footer { padding-top: 20px; color: #5c7781; font-size: 12px; text-align: center;
 @media (max-width: 440px) {
   .mark-a { left: 11px; }.mark-b { right: 11px; }.eyebrow { max-width: 88%; line-height: 1.45; }.game-heading h2 { font-size: 20px; }.hud { font-size: 12px; }.hud span { padding: 4px 6px; }.button { min-height: 43px; }.letter-actions .button { flex: 1 1 130px; } blockquote { font-size: 18px; }
 }
-
-/* Keep the canvas artwork readable on narrow phone screens. */
-@media (max-width: 720px) {
-  .run-section .canvas-shell { min-height: 224px; }
-  .hook-section .canvas-shell { min-height: 288px; }
-  .run-section canvas { width: 220%; max-width: none; }
-  .hook-section canvas { width: 200%; max-width: none; transform: translateX(-25%); }
-  .game-panel { padding: 12px; }
-  .game-intro { font-size: 15px; line-height: 1.9; }
-  .hud { gap: 8px; font-size: 13px; }
-  .hud span { padding: 6px 8px; }
-  .game-actions .button { min-height: 47px; font-size: 15px; }
-}

@@ -5,11 +5,13 @@ window.INVITATION_CONFIG = {
   letterDate: "2026年9月",
   qrImage: "",
   members: [
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" },
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" },
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" },
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" },
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" },
-    { name: "待填写姓名", role: "待填写职务", intro: "待填写一句简短介绍。", avatar: "" }
+    { name: "罗子威学长", role: "行知书院团副", intro: "是从组织部一路成长上来的罗子威，期待大家在新的校园中担当新的青春责任，祝前途光明！学业顺利！组织部欢迎你", avatar: "assets/luo-ziwei.jpg" },
+    { name: "洪孜熙学姐", role: "兼职团干", intro: "我是行知书院团委的洪孜熙，愿与各位在团务实践中淬炼青春、收获成长，祝大家步履生辉，学业有成！团委组织部欢迎你的到来。", avatar: "assets/hong-zixi.jpg" },
+    { name: "李巧玲学姐", role: "组织部执行部长", intro: "", avatar: "assets/li-qiaoling.jpg" },
+    { name: "肖乐学姐", role: "组织部执行副部长", intro: "", avatar: "assets/xiao-le.jpg" },
+    { name: "刘宜佳学姐", role: "组织部部长", intro: "", avatar: "assets/liu-yijia.jpg" },
+    { name: "余雨扬学姐", role: "组织部副部长", intro: "", avatar: "assets/yu-yuyang.jpg" },
+    { name: "李俊睿学长", role: "组织部副部长", intro: "", avatar: "assets/li-junrui.jpg" },
+    { name: "吴依琳学姐", role: "组织部副部长", intro: "", avatar: "assets/wu-yilin.jpg" }
   ]
 };

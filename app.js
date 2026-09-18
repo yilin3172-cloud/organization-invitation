@@ -63,7 +63,7 @@
       const details = createElement("div");
       details.append(createElement("div", "member-role", safeText(member.role, "待填写职务")));
       details.append(createElement("div", "member-name", safeText(member.name, `待填写成员 ${index + 1}`)));
-      details.append(createElement("div", "member-intro", safeText(member.intro, "待填写一句简短介绍。")));
+      if (member.intro) details.append(createElement("div", "member-intro", member.intro));
       card.append(avatar, details);
       grid.append(card);
     });

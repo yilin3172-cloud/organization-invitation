@@ -5,41 +5,18 @@
   const $ = (id) => document.getElementById(id);
   const safeText = (value, fallback) => String(value || fallback || "").trim();
   const parameters = new URLSearchParams(window.location.search);
-  const queryName = safeText(parameters.get("name"), "").slice(0, 16);
   const autoOpen = parameters.get("open") === "1";
-  const recipientName = queryName || safeText(config.recipientName, "待填写姓名");
-  const groupName = safeText(config.groupName, "2026行知书院团委组织部新成员群");
   const letterDate = safeText(config.letterDate, "2026年9月");
   const members = Array.isArray(config.members) && config.members.length ? config.members : [];
 
-  $("coverName").textContent = recipientName;
-  $("recipientName").textContent = recipientName;
-  $("groupNameInline").textContent = groupName;
   $("letterDate").textContent = letterDate;
-  document.title = `来自团委组织部的邀请信｜${recipientName}同学`;
+  document.title = "来自团委组织部的邀请信";
 
   function createElement(tag, className, text) {
     const node = document.createElement(tag);
     if (className) node.className = className;
     if (text !== undefined) node.textContent = text;
     return node;
-  }
-
-  function renderQr() {
-    const frame = $("qrFrame");
-    const src = safeText(config.qrImage, "");
-    if (!src) {
-      const placeholder = createElement("div", "qr-placeholder", "待添加\n群二维码");
-      frame.append(placeholder);
-      return;
-    }
-    const image = new Image();
-    image.src = src;
-    image.alt = `${groupName}二维码`;
-    image.addEventListener("error", () => {
-      frame.replaceChildren(createElement("div", "qr-placeholder", "二维码路径\n+  未找到"));
-    });
-    frame.append(image);
   }
 
   function renderMembers() {
@@ -69,7 +46,6 @@
     });
   }
 
-  renderQr();
   renderMembers();
 
   const cover = $("cover");
@@ -94,7 +70,6 @@
   $("celebrate").addEventListener("click", () => {
     $("message").textContent = "邀请已收下。欢迎加入行知书院团委组织部！";
   });
-  $("toQr").addEventListener("click", () => $("qrFrame").scrollIntoView({ behavior: "smooth", block: "center" }));
 
   function roundedRect(context, x, y, width, height, radius) {
     const r = Math.min(radius, width / 2, height / 2);
@@ -124,7 +99,7 @@
     icon: "👋"
   }));
   const activityItems = [
-    { kind: "activity", label: "进群报到", sub: "新的开始", icon: "✉" },
+    { kind: "activity", label: "破冰相识", sub: "新的开始", icon: "✉" },
     { kind: "activity", label: "团籍整理", sub: "细致与责任", icon: "▣" },
     { kind: "activity", label: "主题团日", sub: "凝聚班团", icon: "✦" },
     { kind: "activity", label: "团员发展", sub: "认真记录", icon: "✓" },
